@@ -1,28 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot</title>
-</head>
-<body>
-    <div id="chat-container">
-        <div id="chat"></div>
-        <input type="text" id="user-input" placeholder="Type your message...">
-        <button onclick="sendMessage()">Send</button>
+<!-- Include Bootstrap CSS from local file -->
+<link rel="stylesheet" href="{{ url_for('static', filename='static\bootstrap-5.3.2-dist\css\bootstrap.min.css') }}">
+
+<!-- Include locally hosted jQuery, Popper.js, and Bootstrap JS -->
+<script src="{{ url_for('static', filename='jquery-3.7.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='static\bootstrap-5.3.2-dist\js\bootstrap.js.map') }}"></script>
+
+
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Chatbot{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <!-- Navbar -->
+        <nav class="navbar navbar-dark bg-dark">
+
+           {% include 'navbar.html' %}
+        </nav>
+
+        <!-- Chat Header -->
+        <div class="container mt-3">
+            ChatBot
+        </div>
+
+        <!-- Chat Screen -->
+        <div class="container" id="chat-container">
+            <div id="chat"></div>
+        </div>
+
+        <!-- Text Box and Send Button -->
+        <div class="container mt-3">
+            
+        </div>
     </div>
-
-    <script>
-        function sendMessage() {
-            // Get user input
-            var userInput = document.getElementById('user-input').value;
-
-            // Append user message to chat
-            document.getElementById('chat').innerHTML += '<div>User: ' + userInput + '</div>';
-
-            // Clear user input
-            document.getElementById('user-input').value = '';
-        }
-    </script>
-</body>
-</html>
+{% endblock %}
