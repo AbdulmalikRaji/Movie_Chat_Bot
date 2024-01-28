@@ -8,7 +8,7 @@ def home():
 #to pass info render_template('index.html, info="Hello")
 
 @app.route('/<name>')
-def home(name):
+def chat(name):
     return f"chat with {name}"
 
 if __name__ == '__main__':
